@@ -1,0 +1,41 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    <bean id="alien" class="org.jsp.Alien" scope="prototype"> </bean>    -->
+
+    <bean id="alien1" class="org.jsp.Alien" autowire="byType">
+
+        <!-- Setter injection-->
+        <property name="age" value="21"> </property>
+        <property name="computer" ref="lap1"> </property>
+
+    <!-- Constructor injection -->
+        <!-- Matching the sequence for variable in constructor through name of the field -->
+<!--        <constructor-arg name="age" value="51" />-->
+<!--        <constructor-arg name="lap" ref="lap1" />-->
+
+        <!-- Matching through index to set the value for variable in constructor  with changing sequence -->
+<!--        <constructor-arg index="1" ref="lap1" />-->
+<!--        <constructor-arg index="0" value="51" />-->
+
+        <!-- changing sequence for initializing the variable in constructor through type-->
+<!--        <constructor-arg type="org.jsp.Laptop" ref="lap1" />-->
+<!--        <constructor-arg type="int" value="51" />-->
+
+
+
+    </bean>
+
+    <bean id="lap1" class="org.jsp.Laptop" primary="true">
+    </bean>
+
+<!--    <bean id="computer" class="org.jsp.Desktop" lazy-init="true">-->
+<!--    </bean>-->
+
+    <bean  class="org.jsp.Desktop" lazy-init="true">
+    </bean>
+
+</beans>
